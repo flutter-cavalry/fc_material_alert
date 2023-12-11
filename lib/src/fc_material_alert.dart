@@ -3,21 +3,6 @@ import 'package:flutter/services.dart';
 
 const _dartExpPrefix = 'Exception: ';
 
-String _getErrorMessage(Object err) {
-  String? msg;
-  if (err is PlatformException) {
-    msg = err.message;
-  }
-  // ignore: prefer_conditional_assignment
-  if (msg == null) {
-    msg = err.toString();
-  }
-  if (msg.startsWith(_dartExpPrefix) == true) {
-    msg = msg.substring(_dartExpPrefix.length);
-  }
-  return msg;
-}
-
 class FcMaterialAlert {
   /// Shows a standard alert dialog with [title], [content] and [okText].
   static Future<void> standard(BuildContext context,
@@ -102,7 +87,7 @@ class FcMaterialAlert {
       barrierDismissible: false,
       builder: (BuildContext context) => AlertDialog(
         title: title == null ? null : Text(title),
-        content: SelectableText(_getErrorMessage(err)),
+        content: SelectableText(extractErrorMessage(err)),
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.pop(context),
@@ -111,5 +96,21 @@ class FcMaterialAlert {
         ],
       ),
     );
+  }
+
+  /// Extracts the error message from [err].
+  static String extractErrorMessage(Object err) {
+    String? msg;
+    if (err is PlatformException) {
+      msg = err.message;
+    }
+    // ignore: prefer_conditional_assignment
+    if (msg == null) {
+      msg = err.toString();
+    }
+    if (msg.startsWith(_dartExpPrefix) == true) {
+      msg = msg.substring(_dartExpPrefix.length);
+    }
+    return msg;
   }
 }
