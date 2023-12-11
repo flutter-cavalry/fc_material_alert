@@ -1,5 +1,7 @@
 # fc_material_alert
 
+[![pub package](https://img.shields.io/pub/v/fc_material_alert.svg)](https://pub.dev/packages/fc_material_alert)
+
 A simple wrapper around Flutter Material Design alert dialogs.
 
 ## Usage
