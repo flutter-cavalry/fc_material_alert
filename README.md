@@ -1,3 +1,5 @@
+**Deprecated**: Moved to [fc_quick_dialog](https://github.com/flutter-cavalry/fc_quick_dialog).
+
 # fc_material_alert
 
 [![pub package](https://img.shields.io/pub/v/fc_material_alert.svg)](https://pub.dev/packages/fc_material_alert)

@@ -1,6 +1,6 @@
 name: fc_material_alert
 description: "A simple wrapper around Flutter Material Design alert dialogs."
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/flutter-cavalry/fc_material_alert
 
 environment:
